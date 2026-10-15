@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Thing, stats } from '../data/things';
 import { CommitBars } from './commit-bars';
@@ -7,7 +7,7 @@ import { CommitBars } from './commit-bars';
   selector: 'qo-thing-card',
   imports: [CommitBars, DatePipe],
   template: `
-    @let t = thing;
+    @let t = thing();
     <a [href]="t.href">
       <span class="top">
         <span class="name">{{ t.name }}</span>
@@ -16,10 +16,10 @@ import { CommitBars } from './commit-bars';
       <span class="desc">{{ t.description }}</span>
       @if (t.sample) {
         <span class="sample" aria-hidden="true">{{ t.sample }}</span>
-      } @else if (repo; as r) {
+      } @else if (repo(); as r) {
         <qo-commit-bars [weeks]="r.weeks" [height]="28" />
       }
-      @if (latest; as l) {
+      @if (latest(); as l) {
         <span class="date latest">{{ l.date | date: 'd MMM y' : 'UTC' }} · {{ l.text }}</span>
       }
     </a>
@@ -52,17 +52,14 @@ import { CommitBars } from './commit-bars';
   `,
 })
 export class ThingCard {
-  @Input({ required: true }) thing!: Thing;
-
-  get repo() {
-    return stats[this.thing.repo] ?? null;
-  }
+  readonly thing = input.required<Thing>();
+  readonly repo = computed(() => stats[this.thing().repo] ?? null);
 
   /** The latest release if there is one, otherwise the latest commit with the thing's note. */
-  get latest(): { date: string; text: string } | null {
-    const r = this.repo;
+  readonly latest = computed(() => {
+    const r = this.repo();
     if (!r) return null;
     if (r.release) return { date: r.release.date, text: r.release.tag };
-    return r.lastCommit ? { date: r.lastCommit, text: this.thing.note ?? 'latest commit' } : null;
-  }
+    return r.lastCommit ? { date: r.lastCommit, text: this.thing().note ?? 'latest commit' } : null;
+  });
 }

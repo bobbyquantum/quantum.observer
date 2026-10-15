@@ -44,9 +44,9 @@ Set `GITHUB_TOKEN` when building to get a higher GitHub API rate limit.
 
 The GitHub Action in `.github/workflows/deploy.yml` builds on every push to `main` and once a day, so the commit counts stay current. It deploys when the repository has `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets.
 
-## A note on component inputs
+## A note on the build
 
-Components that take inputs use `@Input()` rather than signal `input()`. Analog's server build currently compiles components just in time, and the just-in-time compiler doesn't see signal inputs, so they arrive empty when pages are prerendered. Signals are used everywhere else.
+Analog builds the browser and server bundles in parallel with one shared Angular compiler, and the two can reset each other's output, which leaves some components uncompiled. A small plugin in `vite.config.ts` runs the two builds one after the other.
 
 ## Licence
 

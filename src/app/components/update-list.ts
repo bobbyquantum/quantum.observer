@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Update } from '../data/updates';
@@ -8,10 +8,10 @@ import { Update } from '../data/updates';
   imports: [RouterLink, DatePipe],
   template: `
     <ol>
-      @for (update of updates; track update.attributes.slug) {
+      @for (update of updates(); track update.attributes.slug) {
         <li>
           <a [routerLink]="['/updates', update.attributes.slug]">
-            <time class="date" [attr.datetime]="update.attributes.date">{{ update.attributes.date | date: dateFormat }}</time>
+            <time class="date" [attr.datetime]="update.attributes.date">{{ update.attributes.date | date: dateFormat() }}</time>
             <span class="body">
               <span class="label">{{ update.attributes.tag }}</span>
               <span class="title">{{ update.attributes.title }}</span>
@@ -45,6 +45,6 @@ import { Update } from '../data/updates';
   `,
 })
 export class UpdateList {
-  @Input({ required: true }) updates: Update[] = [];
-  @Input() dateFormat = 'd MMM';
+  readonly updates = input.required<Update[]>();
+  readonly dateFormat = input('d MMM');
 }

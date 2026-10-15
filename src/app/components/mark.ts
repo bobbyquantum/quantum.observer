@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 
 /** The Quantum Observer mark: two circles one radius apart, the overlap filled, the Q's tail two radii long. */
 @Component({
   selector: 'qo-mark',
   template: `
-    <svg [attr.width]="size" [attr.height]="size" viewBox="-27 -27 71 71" aria-hidden="true">
+    <svg [attr.width]="size()" [attr.height]="size()" viewBox="-27 -27 71 71" aria-hidden="true">
       <path class="lens" d="M23.18 -6.21 A24 24 0 0 1 -6.21 23.18 A24 24 0 0 1 23.18 -6.21 Z" />
-      <circle class="line" [attr.stroke-width]="stroke" cx="0" cy="0" r="24" />
-      <circle class="line" [attr.stroke-width]="stroke" cx="16.97" cy="16.97" r="24" />
-      <path class="line" [attr.stroke-width]="stroke" d="M0 0 L33.94 33.94" />
+      <circle class="line" [attr.stroke-width]="stroke()" cx="0" cy="0" r="24" />
+      <circle class="line" [attr.stroke-width]="stroke()" cx="16.97" cy="16.97" r="24" />
+      <path class="line" [attr.stroke-width]="stroke()" d="M0 0 L33.94 33.94" />
     </svg>
   `,
   styles: `
@@ -19,12 +19,7 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class Mark {
-  // Decorator inputs rather than signal inputs: Analog's server build compiles components
-  // just in time, which doesn't see signal inputs. See README.
-  @Input() size = 40;
-
+  readonly size = input(40);
   /** The heavy stroke reads better at 32px and below. */
-  get stroke(): number {
-    return this.size <= 32 ? 8 : 5;
-  }
+  readonly stroke = computed(() => (this.size() <= 32 ? 8 : 5));
 }
