@@ -16,7 +16,7 @@ Recently it felt like it needed a logo. That led to the mark you see at the top 
 
 ## Vesica
 
-Once the mark existed, the wordmark needed a Q that matched it, and no font had one. So I drew a whole typeface, built from the same two circles set one radius apart. That overlap shape is called a vesica, which is where the name comes from.
+Once the mark existed, the wordmark needed a Q that matched it, and no font had one. So I drew a whole typeface, built from the same two circles set one radius apart. That overlap shape is a vesica piscis, Latin for “fish bladder”, which is where the name comes from.
 
 <figure class="specimen">
   <span class="specimen__big">Quantum Observer</span>
