@@ -1,3 +1,10 @@
+/* Fonts, all self-hosted and under the SIL Open Font License (see public/fonts). */
+@font-face { font-family: Vesica; src: url(/fonts/vesica/Vesica-Regular.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Vesica; src: url(/fonts/vesica/Vesica-Bold.woff2) format('woff2'); font-weight: 700; font-display: swap; }
+@font-face { font-family: Figtree; src: url(/fonts/figtree/figtree-latin-400-normal.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Figtree; src: url(/fonts/figtree/figtree-latin-600-normal.woff2) format('woff2'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url(/fonts/jetbrains-mono/jetbrains-mono-latin-400-normal.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+
 /* Quantum Observer design system tokens (night theme first, day theme for light mode). */
 :root {
   --night: #0c0a1f;

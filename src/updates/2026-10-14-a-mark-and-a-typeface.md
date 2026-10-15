@@ -8,7 +8,7 @@ summary: Where the name came from, how the mark was drawn, and why that led to d
 
 I wanted a space and an identity away from my professional life, so I made a GitHub account under a pseudonym, bobbyquantum. Then I wanted somewhere on the web to link to, and a custom email address.
 
-The name isn’t really about quantum theory. It’s more about a small part of me that exists independently. Like all names, though, it can mean a lot of things.
+The name isn’t really about quantum theory. Partly it’s about a small part of me that exists on its own, and partly it just sounded right. Like all names, it can mean a lot of things.
 
 After a lot of hunting for domain names I noticed quantum.observer, and it jumped out at me. The observer effect and the other quantum connotations were part of it, and it just seemed nice. For a long time I didn’t do much with it, apart from using it as a convenient entry point to some home lab systems.
 

@@ -2,7 +2,9 @@
 
 The source for [quantum.observer](https://quantum.observer), where I put the things I make and updates on them.
 
-It's an [Analog](https://analogjs.org) site: Angular components, file-based routes, and every page prerendered to static HTML at build time. It's served by Cloudflare Workers static assets. The display face is [Vesica](https://fonts.quantum.observer/vesica/), loaded from fonts.quantum.observer.
+It's an [Analog](https://analogjs.org) site: Angular components and file-based routes, with every page prerendered to static HTML at build time. After the build, `scripts/static-html.mjs` inlines the stylesheet and removes the Angular scripts, so visitors get plain HTML and CSS with no JavaScript. It's served by Cloudflare Workers static assets.
+
+The fonts are self-hosted in `public/fonts`, all under the SIL Open Font License: [Vesica](https://fonts.quantum.observer/vesica/) for display, Figtree for text and JetBrains Mono for dates and labels. When Vesica changes, copy the new WOFF2 files over from [fonts.quantum.observer](https://github.com/bobbyquantum/fonts.quantum.observer).
 
 ## Writing an update
 
@@ -35,7 +37,7 @@ You need Node.js 22.22 or later.
 ```sh
 npm install
 npm run dev            # dev server
-npm run build          # fetch GitHub numbers, build, write rss.xml and 404.html
+npm run build          # fetch GitHub numbers, build, write rss.xml and 404.html, strip scripts
 npm run build:offline  # the same without fetching
 npm run deploy         # wrangler deploy
 ```

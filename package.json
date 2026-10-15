@@ -10,7 +10,7 @@
     "start": "vite",
     "github": "node scripts/fetch-github.mjs",
     "build": "npm run github && npm run build:offline",
-    "build:offline": "vite build && node scripts/rss.mjs && node scripts/not-found.mjs",
+    "build:offline": "vite build && node scripts/rss.mjs && node scripts/not-found.mjs && node scripts/static-html.mjs",
     "serve": "wrangler dev --local",
     "test": "vitest",
     "deploy": "wrangler deploy"
