@@ -1,0 +1,57 @@
+{
+  "name": "quantum-observer",
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.22.3"
+  },
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "github": "node scripts/fetch-github.mjs",
+    "build": "npm run github && npm run build:offline",
+    "build:offline": "vite build && node scripts/rss.mjs && node scripts/not-found.mjs",
+    "serve": "wrangler dev --local",
+    "test": "vitest",
+    "deploy": "wrangler deploy"
+  },
+  "private": true,
+  "dependencies": {
+    "@analogjs/router": "^2.8.1",
+    "@angular/common": "^22.0.0",
+    "@angular/compiler": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0",
+    "@angular/platform-browser": "^22.0.0",
+    "@angular/platform-server": "^22.0.0",
+    "@angular/router": "^22.0.0",
+    "front-matter": "^4.0.2",
+    "marked": "^15.0.7",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@analogjs/platform": "^2.8.1",
+    "@analogjs/vite-plugin-angular": "^2.8.1",
+    "@analogjs/vitest-angular": "^2.8.1",
+    "@angular/build": "^22.0.0",
+    "@angular/cli": "^22.0.0",
+    "@angular/compiler-cli": "^22.0.0",
+    "jsdom": "^22.0.0",
+    "typescript": "~6.0.0",
+    "vite": "^8.0.0",
+    "vite-tsconfig-paths": "^4.2.0",
+    "vitest": "^5.0.0",
+    "wrangler": "^4.151.0"
+  },
+  "overrides": {
+    "vite": "$vite",
+    "vitest": "$vitest"
+  },
+  "description": "quantum.observer: things Bobby Quantum makes, and updates on them",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bobbyquantum/quantum.observer"
+  }
+}

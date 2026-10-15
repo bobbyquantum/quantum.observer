@@ -1,0 +1,248 @@
+/* Quantum Observer design system tokens (night theme first, day theme for light mode). */
+:root {
+  --night: #0c0a1f;
+  --night-raised: #15112e;
+  --night-deep: #07060f;
+  --sky: #2a1e5c;
+  --haze: #2a2550;
+  --starlight: #f3f0ff;
+  --dusk: #b3aad6;
+  --lens: #8c6cf2;
+  --lens-text: #c9b8ff;
+  --on-lens: #0c0a1f;
+
+  --font-display: Vesica, Figtree, system-ui, sans-serif;
+  --font-sans: Figtree, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
+  --space-7: 120px;
+
+  --radius-s: 6px;
+  --radius-m: 12px;
+  --radius-l: 20px;
+  --radius-full: 999px;
+
+  --page: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --night: #f6f4fb;
+    --night-raised: #ffffff;
+    --night-deep: #ece8f6;
+    --sky: #e4ddfb;
+    --haze: #d9d3ec;
+    --starlight: #14112b;
+    --dusk: #4e4778;
+    --lens-text: #5b3fd9;
+    color-scheme: light;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--starlight);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 28px;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--lens-text);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--starlight);
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--lens);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  margin: 0;
+}
+
+.wrap {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dusk);
+}
+
+.date {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--dusk);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: var(--radius-full);
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn--primary {
+  background: var(--lens);
+  color: var(--on-lens);
+  font-weight: 600;
+}
+
+.btn--primary:hover {
+  background: var(--lens-text);
+  color: var(--on-lens);
+}
+
+.btn--secondary {
+  border: 1px solid var(--dusk);
+  color: var(--starlight);
+}
+
+.btn--secondary:hover {
+  border-color: var(--starlight);
+  color: var(--starlight);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Text of an update, rendered from Markdown. */
+.prose {
+  font-size: 18px;
+  line-height: 30px;
+}
+.prose > * + * {
+  margin-top: 22px;
+}
+.prose p,
+.prose ul,
+.prose ol {
+  margin-bottom: 0;
+}
+.prose p:first-child {
+  margin-top: 0;
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.2em;
+}
+.prose li + li {
+  margin-top: 8px;
+}
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.prose h2 {
+  font-size: 30px;
+  line-height: 36px;
+  margin-top: 40px;
+}
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--night-deep);
+  padding: 2px 6px;
+  border-radius: var(--radius-s);
+}
+.prose .specimen {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 28px;
+  border-radius: var(--radius-m);
+  background: var(--night-raised);
+}
+.prose .specimen__big {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 7vw, 72px);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+.prose .specimen__set {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 28px);
+  line-height: 1.3;
+  color: var(--dusk);
+  overflow-wrap: anywhere;
+}
+.prose figcaption {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--dusk);
+}
+.prose .note {
+  padding: 16px 20px;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--haze);
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--dusk);
+}

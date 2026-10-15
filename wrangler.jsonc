@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "quantum-observer",
+  "compatibility_date": "2026-10-06",
+  // A static site: every page is prerendered into dist/analog/public by `npm run build`.
+  "assets": {
+    "directory": "./dist/analog/public",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  // The test address while the site is being built. quantum.observer is switched over separately.
+  "workers_dev": true,
+  "observability": { "enabled": true }
+}
