@@ -12,8 +12,9 @@ import { Mark } from './mark';
         <span class="word">Quantum Observer</span>
       </a>
       <nav aria-label="Main">
+        <a routerLink="/" routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">Home</a>
         <a routerLink="/updates" routerLinkActive="current" ariaCurrentWhenActive="page">Updates</a>
-        <a href="https://fonts.quantum.observer">Fonts</a>
+        <a routerLink="/things" routerLinkActive="current" ariaCurrentWhenActive="page">Things</a>
         <a routerLink="/about" routerLinkActive="current" ariaCurrentWhenActive="page">About</a>
       </nav>
     </header>

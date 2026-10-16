@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-15T09:53:54.584Z",
+  "fetchedAt": "2026-10-16T10:28:17.595Z",
   "repos": {
     "inkweld": {
       "weeks": [
@@ -54,13 +54,13 @@
         28,
         31,
         44,
-        27
+        29
       ],
       "weekStart": "2025-10-19",
-      "commitsYear": 1205,
-      "lastCommit": "2026-10-14T20:26:30Z",
+      "commitsYear": 1207,
+      "lastCommit": "2026-10-16T09:16:02Z",
       "release": null,
-      "prsMergedYear": 987
+      "prsMergedYear": 989
     },
     "pomegranate": {
       "weeks": [

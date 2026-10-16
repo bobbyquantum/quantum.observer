@@ -8,8 +8,11 @@
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page"
   },
-  // The test address while the site is being built. quantum.observer is switched over separately.
-  "routes": [{ "pattern": "next.quantum.observer", "custom_domain": true }],
+  // next.quantum.observer stays as a second address for checking deploys.
+  "routes": [
+    { "pattern": "quantum.observer", "custom_domain": true },
+    { "pattern": "next.quantum.observer", "custom_domain": true }
+  ],
   "workers_dev": false,
   "preview_urls": false,
   "observability": { "enabled": true }

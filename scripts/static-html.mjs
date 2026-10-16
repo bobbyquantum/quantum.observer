@@ -32,6 +32,8 @@ for (const file of files) {
   html = html.replace(/<script\b[^>]*id="ng-state"[^>]*>[\s\S]*?<\/script>/g, '');
   html = html.replace(/<script\b[^>]*id="ng-event-dispatch-contract"[^>]*>[\s\S]*?<\/script>/g, '');
   html = html.replace(/<script>[^<]*__jsaction_bootstrap[\s\S]*?<\/script>/g, '');
+  // Attributes only Angular's runtime reads (component style scoping attributes stay).
+  html = html.replace(/\s(?:jsaction|routerlink|routerlinkactive|ariacurrentwhenactive|ngh|ng-server-context|ng-version)="[^"]*"/g, '');
   // The site stylesheet, inlined so nothing blocks the first paint.
   const links = [...html.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/g)];
   for (const [tag, href] of links) {

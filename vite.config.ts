@@ -50,6 +50,7 @@ export default defineConfig(() => ({
         routes: [
           '/',
           '/updates',
+          '/things',
           '/about',
           '/404',
           {

@@ -69,3 +69,17 @@ export const things: Thing[] = [
     repo: 'fracticons',
   },
 ];
+
+/** Everything, for the Things page: the main project first. */
+export const allThings: Thing[] = [
+  {
+    name: feature.name,
+    status: 'active · main project',
+    fresh: true,
+    description: feature.description,
+    href: feature.live.href,
+    repo: feature.repo,
+    note: 'latest commit',
+  },
+  ...things,
+];

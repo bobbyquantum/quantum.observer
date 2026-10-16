@@ -63,7 +63,10 @@ export const routeMeta = {
         <qo-update-list [updates]="updates" />
       </div>
       <div class="others">
-        <h2>Other things</h2>
+        <div class="head">
+          <h2>Other things</h2>
+          <a routerLink="/things">All things</a>
+        </div>
         @for (thing of things; track thing.name) {
           <qo-thing-card [thing]="thing" />
         }
@@ -122,7 +125,7 @@ export const routeMeta = {
     .head a { font-size: 15px; }
     h2 { font-size: 30px; line-height: 36px; }
     .others { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: var(--space-3); }
-    .others h2 { margin-bottom: 4px; }
+    .others .head { margin-bottom: 4px; }
   `,
 })
 export default class Home {
