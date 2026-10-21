@@ -22,9 +22,9 @@ export const feature = {
   source: 'https://github.com/bobbyquantum/inkweld',
   live: { href: 'https://inkweld.app', label: 'Try it at inkweld.app' },
   image: {
-    src: '/images/inkweld-welcome.webp',
-    alt: 'Inkweld’s welcome screen, asking where your writing should live: in the browser, in your own cloud storage, or on an Inkweld server',
-    caption: 'First run at inkweld.app: choose where your writing lives',
+    src: '/images/inkweld-editor.webp',
+    alt: 'Inkweld’s editor: a project tree on the left, and a chapter in the middle with character and place names highlighted as links',
+    caption: 'The editor, with a project tree and linked characters and places',
   },
 };
 

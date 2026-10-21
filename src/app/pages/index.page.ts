@@ -43,7 +43,7 @@ export const routeMeta = {
             </dl>
           </div>
           <figure class="feature__shot">
-            <img [src]="feature.image.src" [alt]="feature.image.alt" width="800" height="500" />
+            <img [src]="feature.image.src" [alt]="feature.image.alt" width="1280" height="720" />
             <figcaption>{{ feature.image.caption }}</figcaption>
           </figure>
         </div>
@@ -105,7 +105,7 @@ export const routeMeta = {
       display: block;
       width: 100%;
       height: auto;
-      aspect-ratio: 8 / 5;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
       border-radius: var(--radius-m);
       border: 1px solid var(--haze);
